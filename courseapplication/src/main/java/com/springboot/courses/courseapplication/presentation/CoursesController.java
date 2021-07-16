@@ -12,13 +12,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.courses.courseapplication.entities.Course;
-import com.springboot.courses.courseapplication.service.CoursesService;
+import com.springboot.courses.courseapplication.service.CourseService;
 
 @RestController
 public class CoursesController {
 	
+	/*
+	 * @Autowired CoursesService coursesService;
+	 */
+	
 	@Autowired
-	CoursesService coursesService;
+	CourseService coursesService;
 	
 	@GetMapping("/home")
 	public String home(){
@@ -32,7 +36,7 @@ public class CoursesController {
 	}
 	
 	@GetMapping("/courses/{courseId}")
-	public Course getCourse(@PathVariable double courseId){
+	public Course getCourse(@PathVariable long courseId){
 		return coursesService.getCourse(courseId);
 	}
 	
